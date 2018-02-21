@@ -54,6 +54,8 @@ class Gs2LockClient(AbstractGs2Client):
             body["serviceClass"] = request.get_service_class()
         headers = { 
         }
+        if request.get_request_id() is not None:
+            headers["X-GS2-REQUEST-ID"] = request.get_request_id()
         from gs2_lock_client.control.CreateLockPoolRequest import CreateLockPoolRequest
 
         from gs2_lock_client.control.CreateLockPoolResult import CreateLockPoolResult
@@ -82,6 +84,8 @@ class Gs2LockClient(AbstractGs2Client):
         }
         headers = { 
         }
+        if request.get_request_id() is not None:
+            headers["X-GS2-REQUEST-ID"] = request.get_request_id()
         from gs2_lock_client.control.DeleteLockPoolRequest import DeleteLockPoolRequest
 
         self._do_delete_request(
@@ -114,6 +118,8 @@ class Gs2LockClient(AbstractGs2Client):
         }
         headers = { 
         }
+        if request.get_request_id() is not None:
+            headers["X-GS2-REQUEST-ID"] = request.get_request_id()
         from gs2_lock_client.control.DescribeLockPoolRequest import DescribeLockPoolRequest
 
         from gs2_lock_client.control.DescribeLockPoolResult import DescribeLockPoolResult
@@ -143,6 +149,8 @@ class Gs2LockClient(AbstractGs2Client):
         }
         headers = { 
         }
+        if request.get_request_id() is not None:
+            headers["X-GS2-REQUEST-ID"] = request.get_request_id()
         from gs2_lock_client.control.DescribeServiceClassRequest import DescribeServiceClassRequest
 
         from gs2_lock_client.control.DescribeServiceClassResult import DescribeServiceClassResult
@@ -172,6 +180,8 @@ class Gs2LockClient(AbstractGs2Client):
         }
         headers = { 
         }
+        if request.get_request_id() is not None:
+            headers["X-GS2-REQUEST-ID"] = request.get_request_id()
         from gs2_lock_client.control.GetLockPoolRequest import GetLockPoolRequest
 
         from gs2_lock_client.control.GetLockPoolResult import GetLockPoolResult
@@ -201,6 +211,8 @@ class Gs2LockClient(AbstractGs2Client):
         }
         headers = { 
         }
+        if request.get_request_id() is not None:
+            headers["X-GS2-REQUEST-ID"] = request.get_request_id()
         from gs2_lock_client.control.GetLockPoolStatusRequest import GetLockPoolStatusRequest
 
         from gs2_lock_client.control.GetLockPoolStatusResult import GetLockPoolStatusResult
@@ -233,6 +245,8 @@ class Gs2LockClient(AbstractGs2Client):
         headers = { 
             "X-GS2-ACCESS-TOKEN": request.get_access_token()
         }
+        if request.get_request_id() is not None:
+            headers["X-GS2-REQUEST-ID"] = request.get_request_id()
         from gs2_lock_client.control.LockRequest import LockRequest
 
         from gs2_lock_client.control.LockResult import LockResult
@@ -264,6 +278,8 @@ class Gs2LockClient(AbstractGs2Client):
         }
         headers = { 
         }
+        if request.get_request_id() is not None:
+            headers["X-GS2-REQUEST-ID"] = request.get_request_id()
         from gs2_lock_client.control.LockByUserRequest import LockByUserRequest
 
         from gs2_lock_client.control.LockByUserResult import LockByUserResult
@@ -293,6 +309,8 @@ class Gs2LockClient(AbstractGs2Client):
         headers = { 
             "X-GS2-ACCESS-TOKEN": request.get_access_token()
         }
+        if request.get_request_id() is not None:
+            headers["X-GS2-REQUEST-ID"] = request.get_request_id()
         from gs2_lock_client.control.UnlockRequest import UnlockRequest
 
         self._do_delete_request(
@@ -320,6 +338,8 @@ class Gs2LockClient(AbstractGs2Client):
         }
         headers = { 
         }
+        if request.get_request_id() is not None:
+            headers["X-GS2-REQUEST-ID"] = request.get_request_id()
         from gs2_lock_client.control.UnlockByUserRequest import UnlockByUserRequest
 
         self._do_delete_request(
@@ -349,6 +369,8 @@ class Gs2LockClient(AbstractGs2Client):
         }
         headers = { 
         }
+        if request.get_request_id() is not None:
+            headers["X-GS2-REQUEST-ID"] = request.get_request_id()
         from gs2_lock_client.control.UnlockForceByUserRequest import UnlockForceByUserRequest
 
         self._do_delete_request(
@@ -380,6 +402,8 @@ class Gs2LockClient(AbstractGs2Client):
             body["serviceClass"] = request.get_service_class()
         headers = { 
         }
+        if request.get_request_id() is not None:
+            headers["X-GS2-REQUEST-ID"] = request.get_request_id()
         from gs2_lock_client.control.UpdateLockPoolRequest import UpdateLockPoolRequest
 
         from gs2_lock_client.control.UpdateLockPoolResult import UpdateLockPoolResult
