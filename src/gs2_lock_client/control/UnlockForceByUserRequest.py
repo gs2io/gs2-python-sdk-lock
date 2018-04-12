@@ -57,7 +57,7 @@ class UnlockForceByUserRequest(Gs2BasicRequest):
         :param lock_pool_name: ロックプールの名前を指定します。
         :type lock_pool_name: unicode
         """
-        if not isinstance(lock_pool_name, unicode):
+        if lock_pool_name and not isinstance(lock_pool_name, unicode):
             raise TypeError(type(lock_pool_name))
         self.__lock_pool_name = lock_pool_name
 
@@ -86,7 +86,7 @@ class UnlockForceByUserRequest(Gs2BasicRequest):
         :param user_id: ユーザID
         :type user_id: unicode
         """
-        if not isinstance(user_id, unicode):
+        if user_id and not isinstance(user_id, unicode):
             raise TypeError(type(user_id))
         self.__user_id = user_id
 
@@ -115,7 +115,7 @@ class UnlockForceByUserRequest(Gs2BasicRequest):
         :param resource_name: ロック解除するリソースの名前
         :type resource_name: unicode
         """
-        if not isinstance(resource_name, unicode):
+        if resource_name and not isinstance(resource_name, unicode):
             raise TypeError(type(resource_name))
         self.__resource_name = resource_name
 
