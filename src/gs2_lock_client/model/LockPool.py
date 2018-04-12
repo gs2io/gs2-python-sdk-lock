@@ -14,6 +14,7 @@
 # express or implied. See the License for the specific language governing
 # permissions and limitations under the License.
 
+
 class LockPool(object):
 
     def __init__(self, params=None):
@@ -33,7 +34,6 @@ class LockPool(object):
             self.set_service_class(params['serviceClass'] if 'serviceClass' in params.keys() else None)
             self.set_create_at(params['createAt'] if 'createAt' in params.keys() else None)
             self.set_update_at(params['updateAt'] if 'updateAt' in params.keys() else None)
-
 
     def get_lock_pool_id(self):
         """
@@ -148,7 +148,7 @@ class LockPool(object):
         self.__update_at = update_at
 
     def to_dict(self):
-        return { 
+        return {
             "lockPoolId": self.__lock_pool_id,
             "ownerId": self.__owner_id,
             "name": self.__name,

@@ -30,5 +30,3 @@ class DescribeServiceClassRequest(Gs2BasicRequest):
         :type params: dict|None
         """
         super(DescribeServiceClassRequest, self).__init__(params)
-        if params is None:
-        else:

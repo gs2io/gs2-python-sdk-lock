@@ -32,11 +32,15 @@ class UpdateLockPoolRequest(Gs2BasicRequest):
         super(UpdateLockPoolRequest, self).__init__(params)
         if params is None:
             self.__lock_pool_name = None
-            self.__description = None
-            self.__service_class = None
         else:
             self.set_lock_pool_name(params['lockPoolName'] if 'lockPoolName' in params.keys() else None)
+        if params is None:
+            self.__description = None
+        else:
             self.set_description(params['description'] if 'description' in params.keys() else None)
+        if params is None:
+            self.__service_class = None
+        else:
             self.set_service_class(params['serviceClass'] if 'serviceClass' in params.keys() else None)
 
     def get_lock_pool_name(self):
@@ -53,6 +57,8 @@ class UpdateLockPoolRequest(Gs2BasicRequest):
         :param lock_pool_name: ロックプールの名前を指定します。
         :type lock_pool_name: unicode
         """
+        if not isinstance(lock_pool_name, unicode):
+            raise TypeError(type(lock_pool_name))
         self.__lock_pool_name = lock_pool_name
 
     def with_lock_pool_name(self, lock_pool_name):
@@ -80,6 +86,8 @@ class UpdateLockPoolRequest(Gs2BasicRequest):
         :param description: 説明文
         :type description: unicode
         """
+        if not isinstance(description, unicode):
+            raise TypeError(type(description))
         self.__description = description
 
     def with_description(self, description):
@@ -107,6 +115,8 @@ class UpdateLockPoolRequest(Gs2BasicRequest):
         :param service_class: サービスクラス
         :type service_class: unicode
         """
+        if not isinstance(service_class, unicode):
+            raise TypeError(type(service_class))
         self.__service_class = service_class
 
     def with_service_class(self, service_class):

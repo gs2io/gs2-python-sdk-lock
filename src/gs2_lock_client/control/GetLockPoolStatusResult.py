@@ -25,7 +25,6 @@ class GetLockPoolStatusResult(object):
         :type response: レスポンスボディ
         :type response: dict
         """
-        
         self.__status = unicode(response['status']) if 'status' in response.keys() and response['status'] is not None else None
 
     def get_status(self):
@@ -42,7 +41,6 @@ class GetLockPoolStatusResult(object):
         :return: 辞書配列
         :rtype: dict
         """
-        return { 
+        return {
             'status': self.__status,
-        
         }

@@ -14,40 +14,22 @@
 # express or implied. See the License for the specific language governing
 # permissions and limitations under the License.
 
+
 class Lock(object):
 
     def __init__(self, params=None):
         if params is None:
-            self.__lock_id = None
             self.__lock_pool_id = None
             self.__user_id = None
             self.__transaction_id = None
             self.__resource_name = None
             self.__ttl = None
         else:
-            self.set_lock_id(params['lockId'] if 'lockId' in params.keys() else None)
             self.set_lock_pool_id(params['lockPoolId'] if 'lockPoolId' in params.keys() else None)
             self.set_user_id(params['userId'] if 'userId' in params.keys() else None)
             self.set_transaction_id(params['transactionId'] if 'transactionId' in params.keys() else None)
             self.set_resource_name(params['resourceName'] if 'resourceName' in params.keys() else None)
             self.set_ttl(params['ttl'] if 'ttl' in params.keys() else None)
-
-
-    def get_lock_id(self):
-        """
-        ロックIDを取得
-        :return: ロックID
-        :rtype: unicode
-        """
-        return self.__lock_id
-
-    def set_lock_id(self, lock_id):
-        """
-        ロックIDを設定
-        :param lock_id: ロックID
-        :type lock_id: unicode
-        """
-        self.__lock_id = lock_id
 
     def get_lock_pool_id(self):
         """
@@ -130,8 +112,7 @@ class Lock(object):
         self.__ttl = ttl
 
     def to_dict(self):
-        return { 
-            "lockId": self.__lock_id,
+        return {
             "lockPoolId": self.__lock_pool_id,
             "userId": self.__user_id,
             "transactionId": self.__transaction_id,

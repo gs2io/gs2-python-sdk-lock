@@ -49,6 +49,8 @@ class GetLockPoolStatusRequest(Gs2BasicRequest):
         :param lock_pool_name: ロックプールの名前を指定します。
         :type lock_pool_name: unicode
         """
+        if not isinstance(lock_pool_name, unicode):
+            raise TypeError(type(lock_pool_name))
         self.__lock_pool_name = lock_pool_name
 
     def with_lock_pool_name(self, lock_pool_name):

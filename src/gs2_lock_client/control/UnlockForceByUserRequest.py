@@ -32,11 +32,15 @@ class UnlockForceByUserRequest(Gs2BasicRequest):
         super(UnlockForceByUserRequest, self).__init__(params)
         if params is None:
             self.__lock_pool_name = None
-            self.__user_id = None
-            self.__resource_name = None
         else:
             self.set_lock_pool_name(params['lockPoolName'] if 'lockPoolName' in params.keys() else None)
+        if params is None:
+            self.__user_id = None
+        else:
             self.set_user_id(params['userId'] if 'userId' in params.keys() else None)
+        if params is None:
+            self.__resource_name = None
+        else:
             self.set_resource_name(params['resourceName'] if 'resourceName' in params.keys() else None)
 
     def get_lock_pool_name(self):
@@ -53,6 +57,8 @@ class UnlockForceByUserRequest(Gs2BasicRequest):
         :param lock_pool_name: ロックプールの名前を指定します。
         :type lock_pool_name: unicode
         """
+        if not isinstance(lock_pool_name, unicode):
+            raise TypeError(type(lock_pool_name))
         self.__lock_pool_name = lock_pool_name
 
     def with_lock_pool_name(self, lock_pool_name):
@@ -80,6 +86,8 @@ class UnlockForceByUserRequest(Gs2BasicRequest):
         :param user_id: ユーザID
         :type user_id: unicode
         """
+        if not isinstance(user_id, unicode):
+            raise TypeError(type(user_id))
         self.__user_id = user_id
 
     def with_user_id(self, user_id):
@@ -107,6 +115,8 @@ class UnlockForceByUserRequest(Gs2BasicRequest):
         :param resource_name: ロック解除するリソースの名前
         :type resource_name: unicode
         """
+        if not isinstance(resource_name, unicode):
+            raise TypeError(type(resource_name))
         self.__resource_name = resource_name
 
     def with_resource_name(self, resource_name):
