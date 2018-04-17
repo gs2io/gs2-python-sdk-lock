@@ -57,7 +57,7 @@ class CreateLockPoolRequest(Gs2BasicRequest):
         :param name: ロックプールの名前
         :type name: unicode
         """
-        if name and not isinstance(name, unicode):
+        if name and not (isinstance(name, str) or isinstance(name, unicode)):
             raise TypeError(type(name))
         self.__name = name
 
@@ -86,7 +86,7 @@ class CreateLockPoolRequest(Gs2BasicRequest):
         :param description: 説明文
         :type description: unicode
         """
-        if description and not isinstance(description, unicode):
+        if description and not (isinstance(description, str) or isinstance(description, unicode)):
             raise TypeError(type(description))
         self.__description = description
 
@@ -115,7 +115,7 @@ class CreateLockPoolRequest(Gs2BasicRequest):
         :param service_class: サービスクラス
         :type service_class: unicode
         """
-        if service_class and not isinstance(service_class, unicode):
+        if service_class and not (isinstance(service_class, str) or isinstance(service_class, unicode)):
             raise TypeError(type(service_class))
         self.__service_class = service_class
 
