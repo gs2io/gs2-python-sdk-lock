@@ -16,6 +16,7 @@
 
 from gs2_core_client.Gs2Constant import Gs2Constant
 from gs2_core_client.AbstractGs2Client import AbstractGs2Client
+from aws_sdk_for_serverless.common import url_encoder
 
 
 class Gs2LockClient(AbstractGs2Client):
@@ -77,7 +78,7 @@ class Gs2LockClient(AbstractGs2Client):
             headers["X-GS2-REQUEST-ID"] = request.get_request_id()
         from gs2_lock_client.control.DeleteLockPoolRequest import DeleteLockPoolRequest
         self._do_delete_request(
-            url=Gs2Constant.ENDPOINT_HOST + "/lockPool/" + str(("null" if request.get_lock_pool_name() is None or request.get_lock_pool_name() == "" else request.get_lock_pool_name())) + "",
+            url=Gs2Constant.ENDPOINT_HOST + "/lockPool/" + str(("null" if request.get_lock_pool_name() is None or request.get_lock_pool_name() == "" else url_encoder.encode(request.get_lock_pool_name()))) + "",
             service=self.ENDPOINT,
             component=DeleteLockPoolRequest.Constant.MODULE,
             target_function=DeleteLockPoolRequest.Constant.FUNCTION,
@@ -157,7 +158,7 @@ class Gs2LockClient(AbstractGs2Client):
 
         from gs2_lock_client.control.GetLockPoolResult import GetLockPoolResult
         return GetLockPoolResult(self._do_get_request(
-            url=Gs2Constant.ENDPOINT_HOST + "/lockPool/" + str(("null" if request.get_lock_pool_name() is None or request.get_lock_pool_name() == "" else request.get_lock_pool_name())) + "",
+            url=Gs2Constant.ENDPOINT_HOST + "/lockPool/" + str(("null" if request.get_lock_pool_name() is None or request.get_lock_pool_name() == "" else url_encoder.encode(request.get_lock_pool_name()))) + "",
             service=self.ENDPOINT,
             component=GetLockPoolRequest.Constant.MODULE,
             target_function=GetLockPoolRequest.Constant.FUNCTION,
@@ -183,7 +184,7 @@ class Gs2LockClient(AbstractGs2Client):
 
         from gs2_lock_client.control.GetLockPoolStatusResult import GetLockPoolStatusResult
         return GetLockPoolStatusResult(self._do_get_request(
-            url=Gs2Constant.ENDPOINT_HOST + "/lockPool/" + str(("null" if request.get_lock_pool_name() is None or request.get_lock_pool_name() == "" else request.get_lock_pool_name())) + "/status",
+            url=Gs2Constant.ENDPOINT_HOST + "/lockPool/" + str(("null" if request.get_lock_pool_name() is None or request.get_lock_pool_name() == "" else url_encoder.encode(request.get_lock_pool_name()))) + "/status",
             service=self.ENDPOINT,
             component=GetLockPoolStatusRequest.Constant.MODULE,
             target_function=GetLockPoolStatusRequest.Constant.FUNCTION,
@@ -212,7 +213,7 @@ class Gs2LockClient(AbstractGs2Client):
         from gs2_lock_client.control.UpdateLockPoolRequest import UpdateLockPoolRequest
         from gs2_lock_client.control.UpdateLockPoolResult import UpdateLockPoolResult
         return UpdateLockPoolResult(self._do_put_request(
-            url=Gs2Constant.ENDPOINT_HOST + "/lockPool/" + str(("null" if request.get_lock_pool_name() is None or request.get_lock_pool_name() == "" else request.get_lock_pool_name())) + "",
+            url=Gs2Constant.ENDPOINT_HOST + "/lockPool/" + str(("null" if request.get_lock_pool_name() is None or request.get_lock_pool_name() == "" else url_encoder.encode(request.get_lock_pool_name()))) + "",
             service=self.ENDPOINT,
             component=UpdateLockPoolRequest.Constant.MODULE,
             target_function=UpdateLockPoolRequest.Constant.FUNCTION,
@@ -240,7 +241,7 @@ class Gs2LockClient(AbstractGs2Client):
 
         from gs2_lock_client.control.LockResult import LockResult
         return LockResult(self._do_get_request(
-            url=Gs2Constant.ENDPOINT_HOST + "/lockPool/" + str(("null" if request.get_lock_pool_name() is None or request.get_lock_pool_name() == "" else request.get_lock_pool_name())) + "/lock/transaction/" + str(("null" if request.get_transaction_id() is None or request.get_transaction_id() == "" else request.get_transaction_id())) + "/resource/" + str(("null" if request.get_resource_name() is None or request.get_resource_name() == "" else request.get_resource_name())) + "",
+            url=Gs2Constant.ENDPOINT_HOST + "/lockPool/" + str(("null" if request.get_lock_pool_name() is None or request.get_lock_pool_name() == "" else url_encoder.encode(request.get_lock_pool_name()))) + "/lock/transaction/" + str(("null" if request.get_transaction_id() is None or request.get_transaction_id() == "" else url_encoder.encode(request.get_transaction_id()))) + "/resource/" + str(("null" if request.get_resource_name() is None or request.get_resource_name() == "" else url_encoder.encode(request.get_resource_name()))) + "",
             service=self.ENDPOINT,
             component=LockRequest.Constant.MODULE,
             target_function=LockRequest.Constant.FUNCTION,
@@ -267,7 +268,7 @@ class Gs2LockClient(AbstractGs2Client):
 
         from gs2_lock_client.control.LockByUserResult import LockByUserResult
         return LockByUserResult(self._do_get_request(
-            url=Gs2Constant.ENDPOINT_HOST + "/lockPool/" + str(("null" if request.get_lock_pool_name() is None or request.get_lock_pool_name() == "" else request.get_lock_pool_name())) + "/lock/user/" + str(("null" if request.get_user_id() is None or request.get_user_id() == "" else request.get_user_id())) + "/transaction/" + str(("null" if request.get_transaction_id() is None or request.get_transaction_id() == "" else request.get_transaction_id())) + "/resource/" + str(("null" if request.get_resource_name() is None or request.get_resource_name() == "" else request.get_resource_name())) + "",
+            url=Gs2Constant.ENDPOINT_HOST + "/lockPool/" + str(("null" if request.get_lock_pool_name() is None or request.get_lock_pool_name() == "" else url_encoder.encode(request.get_lock_pool_name()))) + "/lock/user/" + str(("null" if request.get_user_id() is None or request.get_user_id() == "" else url_encoder.encode(request.get_user_id()))) + "/transaction/" + str(("null" if request.get_transaction_id() is None or request.get_transaction_id() == "" else url_encoder.encode(request.get_transaction_id()))) + "/resource/" + str(("null" if request.get_resource_name() is None or request.get_resource_name() == "" else url_encoder.encode(request.get_resource_name()))) + "",
             service=self.ENDPOINT,
             component=LockByUserRequest.Constant.MODULE,
             target_function=LockByUserRequest.Constant.FUNCTION,
@@ -290,7 +291,7 @@ class Gs2LockClient(AbstractGs2Client):
             headers["X-GS2-REQUEST-ID"] = request.get_request_id()
         from gs2_lock_client.control.UnlockRequest import UnlockRequest
         self._do_delete_request(
-            url=Gs2Constant.ENDPOINT_HOST + "/lockPool/" + str(("null" if request.get_lock_pool_name() is None or request.get_lock_pool_name() == "" else request.get_lock_pool_name())) + "/lock/transaction/" + str(("null" if request.get_transaction_id() is None or request.get_transaction_id() == "" else request.get_transaction_id())) + "/resource/" + str(("null" if request.get_resource_name() is None or request.get_resource_name() == "" else request.get_resource_name())) + "",
+            url=Gs2Constant.ENDPOINT_HOST + "/lockPool/" + str(("null" if request.get_lock_pool_name() is None or request.get_lock_pool_name() == "" else url_encoder.encode(request.get_lock_pool_name()))) + "/lock/transaction/" + str(("null" if request.get_transaction_id() is None or request.get_transaction_id() == "" else url_encoder.encode(request.get_transaction_id()))) + "/resource/" + str(("null" if request.get_resource_name() is None or request.get_resource_name() == "" else url_encoder.encode(request.get_resource_name()))) + "",
             service=self.ENDPOINT,
             component=UnlockRequest.Constant.MODULE,
             target_function=UnlockRequest.Constant.FUNCTION,
@@ -312,7 +313,7 @@ class Gs2LockClient(AbstractGs2Client):
             headers["X-GS2-REQUEST-ID"] = request.get_request_id()
         from gs2_lock_client.control.UnlockByUserRequest import UnlockByUserRequest
         self._do_delete_request(
-            url=Gs2Constant.ENDPOINT_HOST + "/lockPool/" + str(("null" if request.get_lock_pool_name() is None or request.get_lock_pool_name() == "" else request.get_lock_pool_name())) + "/lock/user/" + str(("null" if request.get_user_id() is None or request.get_user_id() == "" else request.get_user_id())) + "/transaction/" + str(("null" if request.get_transaction_id() is None or request.get_transaction_id() == "" else request.get_transaction_id())) + "/resource/" + str(("null" if request.get_resource_name() is None or request.get_resource_name() == "" else request.get_resource_name())) + "",
+            url=Gs2Constant.ENDPOINT_HOST + "/lockPool/" + str(("null" if request.get_lock_pool_name() is None or request.get_lock_pool_name() == "" else url_encoder.encode(request.get_lock_pool_name()))) + "/lock/user/" + str(("null" if request.get_user_id() is None or request.get_user_id() == "" else url_encoder.encode(request.get_user_id()))) + "/transaction/" + str(("null" if request.get_transaction_id() is None or request.get_transaction_id() == "" else url_encoder.encode(request.get_transaction_id()))) + "/resource/" + str(("null" if request.get_resource_name() is None or request.get_resource_name() == "" else url_encoder.encode(request.get_resource_name()))) + "",
             service=self.ENDPOINT,
             component=UnlockByUserRequest.Constant.MODULE,
             target_function=UnlockByUserRequest.Constant.FUNCTION,
@@ -336,7 +337,7 @@ class Gs2LockClient(AbstractGs2Client):
             headers["X-GS2-REQUEST-ID"] = request.get_request_id()
         from gs2_lock_client.control.UnlockForceByUserRequest import UnlockForceByUserRequest
         self._do_delete_request(
-            url=Gs2Constant.ENDPOINT_HOST + "/lockPool/" + str(("null" if request.get_lock_pool_name() is None or request.get_lock_pool_name() == "" else request.get_lock_pool_name())) + "/lock/user/" + str(("null" if request.get_user_id() is None or request.get_user_id() == "" else request.get_user_id())) + "/resource/" + str(("null" if request.get_resource_name() is None or request.get_resource_name() == "" else request.get_resource_name())) + "",
+            url=Gs2Constant.ENDPOINT_HOST + "/lockPool/" + str(("null" if request.get_lock_pool_name() is None or request.get_lock_pool_name() == "" else url_encoder.encode(request.get_lock_pool_name()))) + "/lock/user/" + str(("null" if request.get_user_id() is None or request.get_user_id() == "" else url_encoder.encode(request.get_user_id()))) + "/resource/" + str(("null" if request.get_resource_name() is None or request.get_resource_name() == "" else url_encoder.encode(request.get_resource_name()))) + "",
             service=self.ENDPOINT,
             component=UnlockForceByUserRequest.Constant.MODULE,
             target_function=UnlockForceByUserRequest.Constant.FUNCTION,
