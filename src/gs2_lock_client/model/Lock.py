@@ -111,6 +111,12 @@ class Lock(object):
         """
         self.__ttl = ttl
 
+    def __getitem__(self, key):
+        items = self.to_dict()
+        if key in items.keys():
+            return items[key]
+        return super(Lock, self).__getitem__(key)
+
     def to_dict(self):
         return {
             "lockPoolId": self.__lock_pool_id,

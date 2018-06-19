@@ -26,7 +26,6 @@ class GetLockPoolStatusResult(object):
         :type response: dict
         """
         self.__status = unicode(response['status']) if 'status' in response.keys() and response['status'] is not None else None
-
     def get_status(self):
         """
         ステータスを取得
@@ -34,6 +33,12 @@ class GetLockPoolStatusResult(object):
         :rtype: unicode
         """
         return self.__status
+
+    def __getitem__(self, key):
+        items = self.to_dict()
+        if key in items.keys():
+            return items[key]
+        return super(GetLockPoolStatusResult, self).__getitem__(key)
 
     def to_dict(self):
         """
