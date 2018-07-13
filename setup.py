@@ -6,7 +6,7 @@ os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
 setup(
     name='gs2-python-sdk-lock',
-    version='1.1.9',
+    version='1.1.10',
     package_dir={'': 'src'},
     packages=[
         "",
@@ -14,6 +14,10 @@ setup(
         "gs2_lock_client.control",
         "gs2_lock_client.model",
     ],
+    install_requires=[
+        'gs2-python-sdk-core >= 1.1.10',
+    ],
+    tests_require=[],
     license='Apache License 2.0',
     description='GS2-Lock SDK for Python.',
     url='https://gs2.io/',
