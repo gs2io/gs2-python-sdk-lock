@@ -57,7 +57,7 @@ class UpdateLockPoolRequest(Gs2BasicRequest):
         :param lock_pool_name: ロックプールの名前を指定します。
         :type lock_pool_name: unicode
         """
-        if lock_pool_name and not (isinstance(lock_pool_name, str) or isinstance(lock_pool_name, unicode)):
+        if lock_pool_name is not None and not (isinstance(lock_pool_name, str) or isinstance(lock_pool_name, unicode)):
             raise TypeError(type(lock_pool_name))
         self.__lock_pool_name = lock_pool_name
 
@@ -86,7 +86,7 @@ class UpdateLockPoolRequest(Gs2BasicRequest):
         :param description: 説明文
         :type description: unicode
         """
-        if description and not (isinstance(description, str) or isinstance(description, unicode)):
+        if description is not None and not (isinstance(description, str) or isinstance(description, unicode)):
             raise TypeError(type(description))
         self.__description = description
 
@@ -115,7 +115,7 @@ class UpdateLockPoolRequest(Gs2BasicRequest):
         :param service_class: サービスクラス
         :type service_class: unicode
         """
-        if service_class and not (isinstance(service_class, str) or isinstance(service_class, unicode)):
+        if service_class is not None and not (isinstance(service_class, str) or isinstance(service_class, unicode)):
             raise TypeError(type(service_class))
         self.__service_class = service_class
 

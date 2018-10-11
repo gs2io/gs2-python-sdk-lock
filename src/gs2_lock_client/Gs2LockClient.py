@@ -49,8 +49,7 @@ class Gs2LockClient(AbstractGs2Client):
 
         if request.get_description() is not None:
             body["description"] = request.get_description()
-        headers = { 
-        }
+        headers = {}
         if request.get_request_id() is not None:
             headers["X-GS2-REQUEST-ID"] = request.get_request_id()
         from gs2_lock_client.control.CreateLockPoolRequest import CreateLockPoolRequest
@@ -72,13 +71,12 @@ class Gs2LockClient(AbstractGs2Client):
         :type request: gs2_lock_client.control.DeleteLockPoolRequest.DeleteLockPoolRequest
         """
         query_strings = {}
-        headers = { 
-        }
+        headers = {}
         if request.get_request_id() is not None:
             headers["X-GS2-REQUEST-ID"] = request.get_request_id()
         from gs2_lock_client.control.DeleteLockPoolRequest import DeleteLockPoolRequest
         self._do_delete_request(
-            url=Gs2Constant.ENDPOINT_HOST + "/lockPool/" + str(("null" if request.get_lock_pool_name() is None or request.get_lock_pool_name() == "" else url_encoder.encode(request.get_lock_pool_name()))) + "",
+            url=Gs2Constant.ENDPOINT_HOST + "/lockPool/" + str(("null" if request.get_lock_pool_name() is None or request.get_lock_pool_name() == "" else request.get_lock_pool_name())) + "",
             service=self.ENDPOINT,
             component=DeleteLockPoolRequest.Constant.MODULE,
             target_function=DeleteLockPoolRequest.Constant.FUNCTION,
@@ -94,12 +92,12 @@ class Gs2LockClient(AbstractGs2Client):
         :return: 結果
         :rtype: gs2_lock_client.control.DescribeLockPoolResult.DescribeLockPoolResult
         """
-        query_strings = {
-            'pageToken': request.get_page_token(),
-            'limit': request.get_limit(),
-        }
-        headers = { 
-        }
+        query_strings = {}
+        if request.get_page_token() is not None:
+            query_strings['pageToken'] = request.get_page_token()
+        if request.get_limit() is not None:
+            query_strings['limit'] = request.get_limit()
+        headers = {}
         if request.get_request_id() is not None:
             headers["X-GS2-REQUEST-ID"] = request.get_request_id()
         from gs2_lock_client.control.DescribeLockPoolRequest import DescribeLockPoolRequest
@@ -122,10 +120,8 @@ class Gs2LockClient(AbstractGs2Client):
         :return: 結果
         :rtype: gs2_lock_client.control.DescribeServiceClassResult.DescribeServiceClassResult
         """
-        query_strings = {
-        }
-        headers = { 
-        }
+        query_strings = {}
+        headers = {}
         if request.get_request_id() is not None:
             headers["X-GS2-REQUEST-ID"] = request.get_request_id()
         from gs2_lock_client.control.DescribeServiceClassRequest import DescribeServiceClassRequest
@@ -148,17 +144,15 @@ class Gs2LockClient(AbstractGs2Client):
         :return: 結果
         :rtype: gs2_lock_client.control.GetLockPoolResult.GetLockPoolResult
         """
-        query_strings = {
-        }
-        headers = { 
-        }
+        query_strings = {}
+        headers = {}
         if request.get_request_id() is not None:
             headers["X-GS2-REQUEST-ID"] = request.get_request_id()
         from gs2_lock_client.control.GetLockPoolRequest import GetLockPoolRequest
 
         from gs2_lock_client.control.GetLockPoolResult import GetLockPoolResult
         return GetLockPoolResult(self._do_get_request(
-            url=Gs2Constant.ENDPOINT_HOST + "/lockPool/" + str(("null" if request.get_lock_pool_name() is None or request.get_lock_pool_name() == "" else url_encoder.encode(request.get_lock_pool_name()))) + "",
+            url=Gs2Constant.ENDPOINT_HOST + "/lockPool/" + str(("null" if request.get_lock_pool_name() is None or request.get_lock_pool_name() == "" else request.get_lock_pool_name())) + "",
             service=self.ENDPOINT,
             component=GetLockPoolRequest.Constant.MODULE,
             target_function=GetLockPoolRequest.Constant.FUNCTION,
@@ -174,17 +168,15 @@ class Gs2LockClient(AbstractGs2Client):
         :return: 結果
         :rtype: gs2_lock_client.control.GetLockPoolStatusResult.GetLockPoolStatusResult
         """
-        query_strings = {
-        }
-        headers = { 
-        }
+        query_strings = {}
+        headers = {}
         if request.get_request_id() is not None:
             headers["X-GS2-REQUEST-ID"] = request.get_request_id()
         from gs2_lock_client.control.GetLockPoolStatusRequest import GetLockPoolStatusRequest
 
         from gs2_lock_client.control.GetLockPoolStatusResult import GetLockPoolStatusResult
         return GetLockPoolStatusResult(self._do_get_request(
-            url=Gs2Constant.ENDPOINT_HOST + "/lockPool/" + str(("null" if request.get_lock_pool_name() is None or request.get_lock_pool_name() == "" else url_encoder.encode(request.get_lock_pool_name()))) + "/status",
+            url=Gs2Constant.ENDPOINT_HOST + "/lockPool/" + str(("null" if request.get_lock_pool_name() is None or request.get_lock_pool_name() == "" else request.get_lock_pool_name())) + "/status",
             service=self.ENDPOINT,
             component=GetLockPoolStatusRequest.Constant.MODULE,
             target_function=GetLockPoolStatusRequest.Constant.FUNCTION,
@@ -206,14 +198,13 @@ class Gs2LockClient(AbstractGs2Client):
         }
         if request.get_description() is not None:
             body["description"] = request.get_description()
-        headers = { 
-        }
+        headers = {}
         if request.get_request_id() is not None:
             headers["X-GS2-REQUEST-ID"] = request.get_request_id()
         from gs2_lock_client.control.UpdateLockPoolRequest import UpdateLockPoolRequest
         from gs2_lock_client.control.UpdateLockPoolResult import UpdateLockPoolResult
         return UpdateLockPoolResult(self._do_put_request(
-            url=Gs2Constant.ENDPOINT_HOST + "/lockPool/" + str(("null" if request.get_lock_pool_name() is None or request.get_lock_pool_name() == "" else url_encoder.encode(request.get_lock_pool_name()))) + "",
+            url=Gs2Constant.ENDPOINT_HOST + "/lockPool/" + str(("null" if request.get_lock_pool_name() is None or request.get_lock_pool_name() == "" else request.get_lock_pool_name())) + "",
             service=self.ENDPOINT,
             component=UpdateLockPoolRequest.Constant.MODULE,
             target_function=UpdateLockPoolRequest.Constant.FUNCTION,
@@ -229,19 +220,19 @@ class Gs2LockClient(AbstractGs2Client):
         :return: 結果
         :rtype: gs2_lock_client.control.LockResult.LockResult
         """
-        query_strings = {
-            'ttl': request.get_ttl(),
-        }
-        headers = { 
-            "X-GS2-ACCESS-TOKEN": request.get_access_token()
-        }
+        query_strings = {}
+        if request.get_ttl() is not None:
+            query_strings['ttl'] = request.get_ttl()
+        headers = {}
+        if request.get_access_token() is not None:
+            headers["X-GS2-ACCESS-TOKEN"] = request.get_access_token()
         if request.get_request_id() is not None:
             headers["X-GS2-REQUEST-ID"] = request.get_request_id()
         from gs2_lock_client.control.LockRequest import LockRequest
 
         from gs2_lock_client.control.LockResult import LockResult
         return LockResult(self._do_get_request(
-            url=Gs2Constant.ENDPOINT_HOST + "/lockPool/" + str(("null" if request.get_lock_pool_name() is None or request.get_lock_pool_name() == "" else url_encoder.encode(request.get_lock_pool_name()))) + "/lock/transaction/" + str(("null" if request.get_transaction_id() is None or request.get_transaction_id() == "" else url_encoder.encode(request.get_transaction_id()))) + "/resource/" + str(("null" if request.get_resource_name() is None or request.get_resource_name() == "" else url_encoder.encode(request.get_resource_name()))) + "",
+            url=Gs2Constant.ENDPOINT_HOST + "/lockPool/" + str(("null" if request.get_lock_pool_name() is None or request.get_lock_pool_name() == "" else request.get_lock_pool_name())) + "/lock/transaction/" + str(("null" if request.get_transaction_id() is None or request.get_transaction_id() == "" else request.get_transaction_id())) + "/resource/" + str(("null" if request.get_resource_name() is None or request.get_resource_name() == "" else request.get_resource_name())) + "",
             service=self.ENDPOINT,
             component=LockRequest.Constant.MODULE,
             target_function=LockRequest.Constant.FUNCTION,
@@ -257,18 +248,17 @@ class Gs2LockClient(AbstractGs2Client):
         :return: 結果
         :rtype: gs2_lock_client.control.LockByUserResult.LockByUserResult
         """
-        query_strings = {
-            'ttl': request.get_ttl(),
-        }
-        headers = { 
-        }
+        query_strings = {}
+        if request.get_ttl() is not None:
+            query_strings['ttl'] = request.get_ttl()
+        headers = {}
         if request.get_request_id() is not None:
             headers["X-GS2-REQUEST-ID"] = request.get_request_id()
         from gs2_lock_client.control.LockByUserRequest import LockByUserRequest
 
         from gs2_lock_client.control.LockByUserResult import LockByUserResult
         return LockByUserResult(self._do_get_request(
-            url=Gs2Constant.ENDPOINT_HOST + "/lockPool/" + str(("null" if request.get_lock_pool_name() is None or request.get_lock_pool_name() == "" else url_encoder.encode(request.get_lock_pool_name()))) + "/lock/user/" + str(("null" if request.get_user_id() is None or request.get_user_id() == "" else url_encoder.encode(request.get_user_id()))) + "/transaction/" + str(("null" if request.get_transaction_id() is None or request.get_transaction_id() == "" else url_encoder.encode(request.get_transaction_id()))) + "/resource/" + str(("null" if request.get_resource_name() is None or request.get_resource_name() == "" else url_encoder.encode(request.get_resource_name()))) + "",
+            url=Gs2Constant.ENDPOINT_HOST + "/lockPool/" + str(("null" if request.get_lock_pool_name() is None or request.get_lock_pool_name() == "" else request.get_lock_pool_name())) + "/lock/user/" + str(("null" if request.get_user_id() is None or request.get_user_id() == "" else request.get_user_id())) + "/transaction/" + str(("null" if request.get_transaction_id() is None or request.get_transaction_id() == "" else request.get_transaction_id())) + "/resource/" + str(("null" if request.get_resource_name() is None or request.get_resource_name() == "" else request.get_resource_name())) + "",
             service=self.ENDPOINT,
             component=LockByUserRequest.Constant.MODULE,
             target_function=LockByUserRequest.Constant.FUNCTION,
@@ -284,14 +274,14 @@ class Gs2LockClient(AbstractGs2Client):
         :type request: gs2_lock_client.control.UnlockRequest.UnlockRequest
         """
         query_strings = {}
-        headers = { 
-            "X-GS2-ACCESS-TOKEN": request.get_access_token()
-        }
+        headers = {}
+        if request.get_access_token() is not None:
+            headers["X-GS2-ACCESS-TOKEN"] = request.get_access_token()
         if request.get_request_id() is not None:
             headers["X-GS2-REQUEST-ID"] = request.get_request_id()
         from gs2_lock_client.control.UnlockRequest import UnlockRequest
         self._do_delete_request(
-            url=Gs2Constant.ENDPOINT_HOST + "/lockPool/" + str(("null" if request.get_lock_pool_name() is None or request.get_lock_pool_name() == "" else url_encoder.encode(request.get_lock_pool_name()))) + "/lock/transaction/" + str(("null" if request.get_transaction_id() is None or request.get_transaction_id() == "" else url_encoder.encode(request.get_transaction_id()))) + "/resource/" + str(("null" if request.get_resource_name() is None or request.get_resource_name() == "" else url_encoder.encode(request.get_resource_name()))) + "",
+            url=Gs2Constant.ENDPOINT_HOST + "/lockPool/" + str(("null" if request.get_lock_pool_name() is None or request.get_lock_pool_name() == "" else request.get_lock_pool_name())) + "/lock/transaction/" + str(("null" if request.get_transaction_id() is None or request.get_transaction_id() == "" else request.get_transaction_id())) + "/resource/" + str(("null" if request.get_resource_name() is None or request.get_resource_name() == "" else request.get_resource_name())) + "",
             service=self.ENDPOINT,
             component=UnlockRequest.Constant.MODULE,
             target_function=UnlockRequest.Constant.FUNCTION,
@@ -307,13 +297,12 @@ class Gs2LockClient(AbstractGs2Client):
         :type request: gs2_lock_client.control.UnlockByUserRequest.UnlockByUserRequest
         """
         query_strings = {}
-        headers = { 
-        }
+        headers = {}
         if request.get_request_id() is not None:
             headers["X-GS2-REQUEST-ID"] = request.get_request_id()
         from gs2_lock_client.control.UnlockByUserRequest import UnlockByUserRequest
         self._do_delete_request(
-            url=Gs2Constant.ENDPOINT_HOST + "/lockPool/" + str(("null" if request.get_lock_pool_name() is None or request.get_lock_pool_name() == "" else url_encoder.encode(request.get_lock_pool_name()))) + "/lock/user/" + str(("null" if request.get_user_id() is None or request.get_user_id() == "" else url_encoder.encode(request.get_user_id()))) + "/transaction/" + str(("null" if request.get_transaction_id() is None or request.get_transaction_id() == "" else url_encoder.encode(request.get_transaction_id()))) + "/resource/" + str(("null" if request.get_resource_name() is None or request.get_resource_name() == "" else url_encoder.encode(request.get_resource_name()))) + "",
+            url=Gs2Constant.ENDPOINT_HOST + "/lockPool/" + str(("null" if request.get_lock_pool_name() is None or request.get_lock_pool_name() == "" else request.get_lock_pool_name())) + "/lock/user/" + str(("null" if request.get_user_id() is None or request.get_user_id() == "" else request.get_user_id())) + "/transaction/" + str(("null" if request.get_transaction_id() is None or request.get_transaction_id() == "" else request.get_transaction_id())) + "/resource/" + str(("null" if request.get_resource_name() is None or request.get_resource_name() == "" else request.get_resource_name())) + "",
             service=self.ENDPOINT,
             component=UnlockByUserRequest.Constant.MODULE,
             target_function=UnlockByUserRequest.Constant.FUNCTION,
@@ -331,13 +320,12 @@ class Gs2LockClient(AbstractGs2Client):
         :type request: gs2_lock_client.control.UnlockForceByUserRequest.UnlockForceByUserRequest
         """
         query_strings = {}
-        headers = { 
-        }
+        headers = {}
         if request.get_request_id() is not None:
             headers["X-GS2-REQUEST-ID"] = request.get_request_id()
         from gs2_lock_client.control.UnlockForceByUserRequest import UnlockForceByUserRequest
         self._do_delete_request(
-            url=Gs2Constant.ENDPOINT_HOST + "/lockPool/" + str(("null" if request.get_lock_pool_name() is None or request.get_lock_pool_name() == "" else url_encoder.encode(request.get_lock_pool_name()))) + "/lock/user/" + str(("null" if request.get_user_id() is None or request.get_user_id() == "" else url_encoder.encode(request.get_user_id()))) + "/resource/" + str(("null" if request.get_resource_name() is None or request.get_resource_name() == "" else url_encoder.encode(request.get_resource_name()))) + "",
+            url=Gs2Constant.ENDPOINT_HOST + "/lockPool/" + str(("null" if request.get_lock_pool_name() is None or request.get_lock_pool_name() == "" else request.get_lock_pool_name())) + "/lock/user/" + str(("null" if request.get_user_id() is None or request.get_user_id() == "" else request.get_user_id())) + "/resource/" + str(("null" if request.get_resource_name() is None or request.get_resource_name() == "" else request.get_resource_name())) + "",
             service=self.ENDPOINT,
             component=UnlockForceByUserRequest.Constant.MODULE,
             target_function=UnlockForceByUserRequest.Constant.FUNCTION,
